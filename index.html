@@ -1,90 +1,439 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
-  <meta name="description" content="Personal portfolio: projects, skills and contact information.">
-  <link rel="stylesheet" href="styles.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Saroeun Sreypich, Reporting & Power BI Developer in Phnom Penh: Power BI dashboards, work experience and contact.">
+<title>Saroeun Sreypich Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..700,100;1,9..144,400..600,100&family=Nunito+Sans:ital,opsz,wght@0,6..12,400..700;1,6..12,400&family=DM+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --paper:#fffaf7; --card:#ffffff; --tint:#fdf1f4;
+  --ink:#3a2531; --ink-2:#6b5561; --ink-3:#95808b;
+  --line:#f0dfe5;
+  --rose:#d44f7c; --rose-ink:#b53a64; --blush:#fbe3eb;
+  --butter:#f7eaa6; --butter-ink:#8a6d0f;
+  --sky:#d5e3f6; --sky-ink:#3d5f8f;
+  --lilac:#ebe1f7; --lilac-ink:#6b4f93;
+  --sage:#e3ead2; --sage-ink:#566425;
+  --shadow:0 1px 2px rgba(80,30,50,.06),0 14px 34px -20px rgba(120,40,70,.35);
+  --serif:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:"Nunito Sans","Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:"DM Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --paper:#1b1418; --card:#241a20; --tint:#2c1f26;
+    --ink:#f6e9ee; --ink-2:#cdb7c1; --ink-3:#9c8791; --line:#3a2a32;
+    --rose:#ec7aa0; --rose-ink:#f39bb8; --blush:#3d2330;
+    --butter:#3d3514; --butter-ink:#ecd27a;
+    --sky:#1f2c3f; --sky-ink:#a9c4ea;
+    --lilac:#2d2440; --lilac-ink:#c9b3ec;
+    --sage:#283019; --sage-ink:#bccb8e;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 14px 34px -20px rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --paper:#1b1418; --card:#241a20; --tint:#2c1f26;
+  --ink:#f6e9ee; --ink-2:#cdb7c1; --ink-3:#9c8791; --line:#3a2a32;
+  --rose:#ec7aa0; --rose-ink:#f39bb8; --blush:#3d2330;
+  --butter:#3d3514; --butter-ink:#ecd27a;
+  --sky:#1f2c3f; --sky-ink:#a9c4ea;
+  --lilac:#2d2440; --lilac-ink:#c9b3ec;
+  --sage:#283019; --sage-ink:#bccb8e;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 14px 34px -20px rgba(0,0,0,.6);
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+img{max-width:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.65}
+h1,h2,h3,h4{font-family:var(--serif);font-variation-settings:"SOFT" 100;font-weight:600;margin:0;text-wrap:balance;color:var(--ink)}
+p{margin:0}
+a{color:var(--rose-ink)}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--rose);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1140px;margin:0 auto;padding-inline:clamp(16px,4vw,36px)}
+.eyebrow{font:500 12px/1 var(--mono);letter-spacing:1.3px;text-transform:uppercase;color:var(--rose-ink)}
+.muted{color:var(--ink-2)}
+.flower{width:22px;height:22px;flex:none}
+.flower .p{fill:var(--rose)} .flower .c{fill:var(--butter-ink)}
+
+/* nav */
+.nav{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:22px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:600;font-size:19px;font-variation-settings:"SOFT" 100;text-decoration:none;color:var(--ink)}
+.nav nav{display:flex;gap:6px;flex-wrap:wrap}
+.nav nav a{color:var(--ink-2);text-decoration:none;font-size:15px;padding:6px 12px;border-radius:999px}
+.nav nav a:hover{background:var(--blush);color:var(--ink)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center;padding-block:36px 72px}
+.hello{display:inline-flex;align-items:center;gap:8px;background:var(--blush);color:var(--rose-ink);font-weight:700;font-size:14px;padding:6px 14px;border-radius:999px}
+.hero h1{font-size:clamp(46px,6.6vw,80px);line-height:1;margin-top:20px;font-weight:600;letter-spacing:-.5px}
+.hero h1 em{font-style:italic;font-weight:500;color:var(--rose)}
+.hero .role{font-family:var(--serif);font-style:italic;font-size:clamp(19px,2.2vw,23px);color:var(--ink-2);margin-top:14px;font-variation-settings:"SOFT" 100}
+.hero .intro{font-size:18px;color:var(--ink-2);max-width:46ch;margin-top:18px}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none;border:1.5px solid transparent;cursor:pointer}
+.btn.primary{background:var(--rose);color:#fff}
+.btn.primary:hover{filter:brightness(1.06)}
+.btn.soft{background:var(--card);border-color:var(--line);color:var(--ink)}
+.btn.soft:hover{border-color:var(--rose)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.chip{font-size:13px;font-weight:700;padding:5px 12px;border-radius:999px}
+.c-rose{background:var(--blush);color:var(--rose-ink)}
+.c-butter{background:var(--butter);color:var(--butter-ink)}
+.c-sky{background:var(--sky);color:var(--sky-ink)}
+.c-lilac{background:var(--lilac);color:var(--lilac-ink)}
+.c-sage{background:var(--sage);color:var(--sage-ink)}
+
+.stack{position:relative;aspect-ratio:1/0.82;max-width:100%}
+.stack a{position:absolute;display:block;width:74%;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);border:6px solid var(--card);background:var(--card);transition:transform .25s ease}
+.stack img{display:block;width:100%;height:auto}
+.stack a:nth-child(1){left:0;top:4%;transform:rotate(-5deg);z-index:1}
+.stack a:nth-child(2){right:0;top:0;transform:rotate(4deg);z-index:2}
+.stack a:nth-child(3){left:12%;bottom:0;transform:rotate(-1deg);z-index:3}
+.stack a:hover{transform:rotate(0) translateY(-6px) scale(1.02);z-index:5}
+.stack .lbl{position:absolute;left:10px;bottom:10px;background:var(--card);color:var(--ink);font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px}
+
+/* sections */
+section{padding-block:72px}
+.sec-head{max-width:640px;margin-bottom:34px;display:flex;flex-direction:column;gap:10px}
+.sec-head h2{font-size:clamp(30px,4vw,44px);line-height:1.1}
+.band{background:var(--tint)}
+
+/* projects */
+.project{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:36px;align-items:start}
+.project + .project{margin-top:72px;padding-top:72px;border-top:1px dashed var(--line)}
+.project.flip{grid-template-columns:minmax(0,1fr) minmax(0,1.5fr)}
+.project.flip .shot-col{order:2}
+.shot{display:block;border:none;padding:0;background:var(--card);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);cursor:zoom-in;width:100%;border:6px solid var(--card)}
+.shot img{display:block;width:100%;height:auto;border-radius:12px}
+.zoomhint{font-size:13px;color:var(--ink-3);margin-top:10px;display:flex;align-items:center;gap:6px}
+.pages{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.pg{border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:13px;font-weight:700;color:var(--ink-2);cursor:pointer}
+.pg[aria-pressed="true"]{background:var(--rose);border-color:var(--rose);color:#fff}
+.info{display:flex;flex-direction:column;gap:18px}
+.info h3{font-size:clamp(26px,3vw,34px);line-height:1.12}
+.tagline{font-family:var(--serif);font-style:italic;color:var(--ink-2);font-size:18px;font-variation-settings:"SOFT" 100}
+.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.stat{border-radius:14px;padding:12px 14px}
+.stat b{display:block;font-family:var(--serif);font-size:24px;font-weight:600;line-height:1.1;font-variant-numeric:tabular-nums;font-variation-settings:"SOFT" 100}
+.stat span{font-size:13px;font-weight:600;opacity:.9}
+.block h4{font:500 12px var(--mono);letter-spacing:1.2px;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px}
+.block ul{margin:0;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:7px}
+.block li{position:relative;padding-left:22px;color:var(--ink-2);font-size:16px;line-height:1.5}
+.block li::before{content:"";position:absolute;left:2px;top:.52em;width:9px;height:9px;border-radius:50%;background:var(--dot,var(--rose))}
+.insight{background:var(--card);border:1.5px dashed var(--line);border-radius:14px;padding:14px 16px;font-size:15.5px;color:var(--ink-2)}
+.insight b{color:var(--ink)}
+.credit{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-3)}
+.p-freight{--dot:#b24a64}
+.p-coffee{--dot:#d9a72a}
+.p-sales{--dot:var(--rose)}
+
+/* lyhour work */
+.work-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.wcard{background:var(--card);border-radius:18px;padding:22px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px}
+.wcard .ic{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font:600 16px var(--serif)}
+.wcard h3{font-size:20px;line-height:1.2}
+.wcard p{font-size:15.5px;color:var(--ink-2);line-height:1.55}
+.wcard .tools{font:500 12px var(--mono);color:var(--ink-3);margin-top:auto;padding-top:4px}
+.note{margin-top:18px;font-size:14px;color:var(--ink-3)}
+
+/* about */
+.about{display:grid;grid-template-columns:1.1fr 1fr;gap:48px}
+.timeline{display:flex;flex-direction:column;gap:0;border-left:2px dotted var(--line);margin-left:8px}
+.job{position:relative;padding:0 0 22px 24px}
+.job:last-child{padding-bottom:0}
+.job::before{content:"";position:absolute;left:-8px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--paper);border:2.5px solid var(--ink-3)}
+.job.now::before{background:var(--rose);border-color:var(--rose)}
+.job .when{font:500 12.5px var(--mono);color:var(--ink-3)}
+.job h3{font-size:18px;margin-top:2px}
+.job .org{color:var(--ink-2);font-size:15.5px}
+.skills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.skills .chip{font-size:14px;padding:7px 14px}
+.cert{display:flex;flex-direction:column;padding:12px 0;border-bottom:1px dashed var(--line)}
+.cert b{font-weight:700}
+.cert span{font-size:15px;color:var(--ink-3)}
+
+/* contact */
+.contact{background:var(--blush);border-radius:28px;padding:clamp(28px,5vw,56px);display:grid;grid-template-columns:1.1fr 1fr;gap:32px;align-items:center;margin-block:24px 64px}
+.contact h2{font-size:clamp(30px,4vw,44px);line-height:1.1}
+.contact p{color:var(--ink-2);margin-top:12px}
+.clist{display:flex;flex-direction:column;gap:10px}
+.crow{background:var(--card);border-radius:14px;padding:12px 16px;display:grid;grid-template-columns:64px 1fr auto;gap:10px;align-items:center}
+.crow .k{font:500 11.5px var(--mono);letter-spacing:1px;text-transform:uppercase;color:var(--ink-3)}
+.crow .v{user-select:all;font-weight:700;overflow-wrap:anywhere}
+.copy{border:1.5px solid var(--line);background:transparent;border-radius:999px;padding:4px 12px;font-size:12.5px;font-weight:700;cursor:pointer;color:var(--ink-2)}
+.copy:hover{border-color:var(--rose);color:var(--rose-ink)}
+footer{padding-block:0 40px;text-align:center;color:var(--ink-3);font-size:14px;display:flex;flex-direction:column;align-items:center;gap:8px}
+
+/* lightbox */
+.lb{position:fixed;inset:0;background:rgba(30,15,22,.82);display:flex;align-items:center;justify-content:center;padding:16px;z-index:50}
+.lb img{max-width:min(1400px,100%);max-height:88vh;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,.4);background:#fff}
+.lb button{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:16px;background:#fff;color:#3a2531;border:none;border-radius:999px;padding:8px 16px;font-weight:700;cursor:pointer}
+
+@media (max-width:920px){
+  .hero,.project,.project.flip,.about,.contact{grid-template-columns:minmax(0,1fr)}
+  .project.flip .shot-col{order:0}
+  .work-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .hero{padding-block:16px 48px}
+}
+@media (max-width:600px){
+  body{font-size:16px}
+  .work-grid{grid-template-columns:minmax(0,1fr)}
+  section{padding-block:56px}
+  .project + .project{margin-top:48px;padding-top:48px}
+  .crow{grid-template-columns:1fr auto}
+  .crow .k{grid-column:1/-1}
+  .nav nav{display:none}
+}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+@media (prefers-reduced-motion:reduce){.stack a{transition:none}}
+</style>
 </head>
 <body>
-  <header class="site-header">
-    <nav class="nav">
-      <a href="#top" class="logo">Your Name</a>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="fl" viewBox="0 0 24 24">
+    <g class="p"><ellipse cx="12" cy="6" rx="3.6" ry="5"/><ellipse cx="12" cy="6" rx="3.6" ry="5" transform="rotate(72 12 12)"/><ellipse cx="12" cy="6" rx="3.6" ry="5" transform="rotate(144 12 12)"/><ellipse cx="12" cy="6" rx="3.6" ry="5" transform="rotate(216 12 12)"/><ellipse cx="12" cy="6" rx="3.6" ry="5" transform="rotate(288 12 12)"/></g>
+    <circle class="c" cx="12" cy="12" r="2.8"/>
+  </symbol>
+</svg>
+
+<div class="wrap">
+  <header class="nav">
+    <a class="brand" href="#top"><svg class="flower"><use href="#fl"/></svg>Sreypich</a>
+    <nav aria-label="Sections">
+      <a href="#dashboards">Dashboards</a>
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <main id="top">
-    <section class="hero">
-      <p class="eyebrow">Hi, I'm</p>
-      <h1>Your Name</h1>
-      <p class="tagline">Developer · Designer · Problem solver</p>
-      <div class="hero-actions">
-        <a href="#projects" class="btn btn-primary">View my work</a>
-        <a href="#contact" class="btn">Get in touch</a>
+  <div class="hero" id="top">
+    <div>
+      <span class="hello"><svg class="flower" style="width:16px;height:16px"><use href="#fl"/></svg>Hi, I'm Sreypich</span>
+      <h1>Saroeun <em>Sreypich</em></h1>
+      <p class="role">Reporting &amp; Power BI Developer</p>
+      <p class="intro">I design Power BI dashboards that are clear, friendly to read and built to answer real business questions. By day I build the sales and renewal reporting for the CEO of Lyhour SBI Insurance in Phnom Penh.</p>
+      <div class="cta">
+        <a class="btn primary" href="#dashboards">See my dashboards</a>
+        <a class="btn soft" href="#contact">Get in touch</a>
       </div>
-    </section>
-
-    <section id="about" class="section">
-      <h2>About me</h2>
-      <p>
-        Write a short introduction here: who you are, what you do, and what you're
-        looking for. Two or three sentences is plenty.
-      </p>
-    </section>
-
-    <section id="projects" class="section">
-      <h2>Projects</h2>
-      <div class="grid">
-        <article class="card">
-          <h3>Project One</h3>
-          <p>A short description of what this project does and the problem it solves.</p>
-          <p class="tags">HTML · CSS · JavaScript</p>
-          <a href="https://github.com/specialoften4-commits" target="_blank" rel="noopener">View on GitHub →</a>
-        </article>
-        <article class="card">
-          <h3>Project Two</h3>
-          <p>A short description of what this project does and the problem it solves.</p>
-          <p class="tags">Python · API</p>
-          <a href="https://github.com/specialoften4-commits" target="_blank" rel="noopener">View on GitHub →</a>
-        </article>
-        <article class="card">
-          <h3>Project Three</h3>
-          <p>A short description of what this project does and the problem it solves.</p>
-          <p class="tags">React · Node.js</p>
-          <a href="https://github.com/specialoften4-commits" target="_blank" rel="noopener">View on GitHub →</a>
-        </article>
+      <div class="chips">
+        <span class="chip c-rose">Power BI</span><span class="chip c-butter">DAX</span><span class="chip c-sky">Power Query</span><span class="chip c-lilac">Excel</span><span class="chip c-sage">SQL</span>
       </div>
-    </section>
+    </div>
+    <div class="stack" aria-label="Dashboard previews">
+      <a href="#freight"><img src="img/freight.webp" alt="Cambodia Freight dashboard preview" width="1937" height="1120"><span class="lbl">Cambodia Freight</span></a>
+      <a href="#coffee"><img src="img/coffee.webp" alt="Buttercup Coffee dashboard preview" width="1937" height="1120"><span class="lbl">Buttercup Coffee</span></a>
+      <a href="#sales"><img src="img/sales-1.webp" alt="Sales and Business Performance dashboard preview" width="1937" height="1120"><span class="lbl">Sales Performance</span></a>
+    </div>
+  </div>
+</div>
 
-    <section id="skills" class="section">
-      <h2>Skills</h2>
-      <ul class="skills">
-        <li>HTML</li><li>CSS</li><li>JavaScript</li><li>Git &amp; GitHub</li>
-        <li>Python</li><li>Responsive design</li>
-      </ul>
-    </section>
+<main>
+<section class="band" id="dashboards">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Power BI portfolio</span>
+      <h2>Dashboards I designed and built</h2>
+      <p class="muted">Each report starts with the questions a manager would ask, then gets a layout and colour theme of its own. Click any dashboard to see it full size.</p>
+    </div>
 
-    <section id="contact" class="section">
-      <h2>Contact</h2>
-      <p>I'm open to opportunities and collaborations. Feel free to reach out.</p>
-      <div class="hero-actions">
-        <a href="mailto:you@example.com" class="btn btn-primary">Email me</a>
-        <a href="https://github.com/specialoften4-commits" class="btn" target="_blank" rel="noopener">GitHub</a>
+    <!-- Freight -->
+    <article class="project p-freight" id="freight">
+      <div class="shot-col">
+        <button class="shot" type="button" data-full="img/freight.webp" aria-label="Enlarge Cambodia Freight dashboard"><img src="img/freight.webp" alt="Cambodia Freight Performance dashboard: KPI cards, shipments by month by mode, on-time delivery vs 92% target, carrier scorecard and late-shipment reasons" width="1937" height="1120" loading="lazy"></button>
+        <div class="zoomhint">Click to enlarge · 1 page</div>
       </div>
-    </section>
-  </main>
+      <div class="info">
+        <span class="eyebrow">Logistics · Operations</span>
+        <h3>Cambodia Freight Performance</h3>
+        <p class="tagline">Shipments, service and cost across 4 warehouses and 7 carriers, Jan–Aug 2026.</p>
+        <div class="stats">
+          <div class="stat c-rose"><b>4,200</b><span>shipments</span></div>
+          <div class="stat c-rose"><b>85.3%</b><span>on-time delivery</span></div>
+          <div class="stat c-butter"><b>2.15</b><span>avg transit days</span></div>
+          <div class="stat c-sage"><b>$417K</b><span>freight spend</span></div>
+        </div>
+        <div class="block"><h4>What I built</h4>
+          <ul>
+            <li>Shipments by month, stacked by transport mode (air, rail, road, sea).</li>
+            <li>On-time delivery trend against a 92% target line.</li>
+            <li>Carrier scorecard: shipments, on-time %, transit days and cost per kg.</li>
+            <li>A "why shipments run late" breakdown by delay reason.</li>
+            <li>Slicers for warehouse, mode and carrier; a botanical theme to match the brand.</li>
+          </ul>
+        </div>
+        <p class="insight"><b>What it shows:</b> on-time delivery stayed under the 92% target all period and dipped to about 81% in June–July. Weather is the top cause of delays, and two carriers sit below 80% on-time.</p>
+        <div class="credit"><svg class="flower" style="width:14px;height:14px"><use href="#fl"/></svg>Designed &amp; built by Saroeun Sreypich · sample data</div>
+      </div>
+    </article>
 
-  <footer class="site-footer">
-    <p>&copy; <span id="year"></span> Your Name</p>
-  </footer>
+    <!-- Coffee -->
+    <article class="project flip p-coffee" id="coffee">
+      <div class="shot-col">
+        <button class="shot" type="button" data-full="img/coffee.webp" aria-label="Enlarge Buttercup Coffee dashboard"><img src="img/coffee.webp" alt="Buttercup Coffee sales overview: KPI cards, average daily revenue by week per store, weekly rhythm heatmap, revenue by category and top products" width="1937" height="1120" loading="lazy"></button>
+        <div class="zoomhint">Click to enlarge · 1 page</div>
+      </div>
+      <div class="info">
+        <span class="eyebrow">Retail · Food &amp; beverage</span>
+        <h3>Buttercup Coffee Sales Overview</h3>
+        <p class="tagline">Sales across 3 café stores, Jan–Jun 2026.</p>
+        <div class="stats">
+          <div class="stat c-butter"><b>$403K</b><span>revenue</span></div>
+          <div class="stat c-sky"><b>77K</b><span>transactions</span></div>
+          <div class="stat c-butter"><b>$5.20</b><span>average ticket</span></div>
+          <div class="stat c-sky"><b>113K</b><span>items sold</span></div>
+        </div>
+        <div class="block"><h4>What I built</h4>
+          <ul>
+            <li>Average daily revenue by week, one line per store.</li>
+            <li>A weekly rhythm heatmap of average transactions by hour and weekday.</li>
+            <li>Revenue by category and a top-products table.</li>
+            <li>Store and month slicers; a soft butter-and-blue theme.</li>
+          </ul>
+        </div>
+        <p class="insight"><b>What it shows:</b> all three stores grew over the six months, with Riverside earning the most per day. The busiest time is 7–9 am, peaking on Saturday mornings, and the latte is the best-selling product.</p>
+        <div class="credit"><svg class="flower" style="width:14px;height:14px"><use href="#fl"/></svg>Designed &amp; built by Saroeun Sreypich · sample data</div>
+      </div>
+    </article>
 
-  <script src="script.js"></script>
+    <!-- Sales -->
+    <article class="project p-sales" id="sales">
+      <div class="shot-col">
+        <button class="shot" type="button" id="salesShot" data-full="img/sales-1.webp" aria-label="Enlarge Sales and Business Performance dashboard"><img id="salesImg" src="img/sales-1.webp" alt="Sales and Business Performance, page 1: Executive Overview" width="1937" height="1120" loading="lazy"></button>
+        <div class="pages" role="group" aria-label="Report pages">
+          <button class="pg" type="button" aria-pressed="true" data-src="img/sales-1.webp" data-alt="Page 1: Executive Overview">1 · Executive Overview</button>
+          <button class="pg" type="button" aria-pressed="false" data-src="img/sales-2.webp" data-alt="Page 2: Sales Performance">2 · Sales Performance</button>
+          <button class="pg" type="button" aria-pressed="false" data-src="img/sales-3.webp" data-alt="Page 3: Profitability">3 · Profitability</button>
+        </div>
+      </div>
+      <div class="info">
+        <span class="eyebrow">Insurance · Executive reporting</span>
+        <h3>Sales &amp; Business Performance</h3>
+        <p class="tagline">A five-page insurance report where every page answers one question for management.</p>
+        <div class="block"><h4>The five pages</h4>
+          <ul>
+            <li><b>Executive Overview</b>: How is the business performing?</li>
+            <li><b>Sales Performance</b>: Where is the result coming from?</li>
+            <li><b>Profitability</b>: Is our growth producing profit?</li>
+            <li><b>Renewal &amp; Customer Risk</b>: What might we lose?</li>
+            <li><b>Customer &amp; Policy Detail</b>: Find the exact policy.</li>
+          </ul>
+        </div>
+        <div class="block"><h4>What I built</h4>
+          <ul>
+            <li>Premium against plan and last year, achievement % by channel, and premium by product line.</li>
+            <li>A drill-down table from channel to manager, salesperson, customer and policy.</li>
+            <li>A profit bridge (waterfall) from last year's net profit to this year's.</li>
+            <li>A dynamic warning banner that spots when premium grows but profit falls, and names the biggest cost increase.</li>
+            <li>Six shared slicers across all pages.</li>
+          </ul>
+        </div>
+        <div class="credit"><svg class="flower" style="width:14px;height:14px"><use href="#fl"/></svg>Designed &amp; built by Saroeun Sreypich</div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">At Lyhour SBI Insurance</span>
+      <h2>Reporting I build at work</h2>
+      <p class="muted">Company data is confidential, so these are described without figures.</p>
+    </div>
+    <div class="work-grid">
+      <div class="wcard"><div class="ic c-rose">R</div><h3>Renewal Pipeline Dashboard</h3><p>A weekly Power BI report of policies expiring this month, with premium at risk and a follow-up list for each agent.</p><div class="tools">Power BI · DAX · Power Query</div></div>
+      <div class="wcard"><div class="ic c-butter">A</div><h3>Premium Aging Report</h3><p>Unpaid premium by age bucket, with a rule that flags the accounts sales needs to chase, plus a Print &amp; Sign sheet for managers.</p><div class="tools">Power BI · Excel</div></div>
+      <div class="wcard"><div class="ic c-sky">K</div><h3>Bank Channel KPI Model</h3><p>Works backwards from the revenue target to the quotes and customer visits each bank seller needs.</p><div class="tools">Power BI · DAX</div></div>
+      <div class="wcard"><div class="ic c-lilac">C</div><h3>CEO Performance Report</h3><p>Each salesperson's results against target by channel and month, colour-coded at 100% and 80% of target.</p><div class="tools">Excel · structured tables</div></div>
+      <div class="wcard"><div class="ic c-sage">5</div><h3>Channel Performance Reports</h3><p>Plan vs Result for every team member across Auto, Bank, Broker, Direct and Group, reconciled to the source data.</p><div class="tools">Excel · SUMIFS</div></div>
+      <div class="wcard"><div class="ic c-rose">Y</div><h3>Bank &amp; Broker YoY</h3><p>Premium by partner company, with each month of 2026 set beside the same month of 2025.</p><div class="tools">Excel · charts</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="about">
+  <div class="wrap about">
+    <div>
+      <div class="sec-head"><span class="eyebrow">Experience</span><h2>My path so far</h2></div>
+      <div class="timeline">
+        <div class="job now"><span class="when">May 2026 – Present</span><h3>Reporting &amp; Power BI Developer</h3><span class="org">Lyhour SBI Insurance</span></div>
+        <div class="job"><span class="when">Feb 2025 – Apr 2026</span><h3>Customer Service Officer</h3><span class="org">Lyhour SBI Insurance</span></div>
+        <div class="job"><span class="when">May 2024 – Feb 2025</span><h3>Assistant Warehouse</h3><span class="org">Srifa Bakery</span></div>
+        <div class="job"><span class="when">May 2023 – Nov 2024</span><h3>Assistant Manager</h3><span class="org">Funky Beach</span></div>
+        <div class="job"><span class="when">Jun 2022 – Apr 2023</span><h3>Receptionist</h3><span class="org">One Road Group</span></div>
+        <div class="job"><span class="when">Dec 2020 – Dec 2021</span><h3>Primary School Teacher</h3><span class="org">Hartford International School</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="sec-head"><span class="eyebrow">Skills</span><h2>Tools &amp; training</h2></div>
+      <div class="skills">
+        <span class="chip c-rose">Power BI &amp; DAX</span><span class="chip c-butter">Excel &amp; Power Query</span><span class="chip c-sky">Data modelling</span><span class="chip c-lilac">KPI reporting</span><span class="chip c-sage">SQL</span><span class="chip c-rose">Python (learning)</span>
+      </div>
+      <div class="cert"><b>Business Analytics with Power BI</b><span>Dichi Academy</span></div>
+      <div class="cert"><b>Data Management with SQL</b><span>Dichi Academy</span></div>
+      <div class="cert"><b>Data with Python</b><span>Dichi Academy</span></div>
+      <div class="cert"><b>BA, International Business Management</b><span>Royal University of Phnom Penh · 2018–2022</span></div>
+      <div class="cert"><b>Languages</b><span>Khmer (native) · English (advanced)</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="contact" id="contact">
+    <div>
+      <span class="eyebrow">Contact</span>
+      <h2 style="margin-top:10px">Let's work together</h2>
+      <p>I'm looking for a Data Analyst role and would love to walk you through any of these dashboards.</p>
+    </div>
+    <div class="clist">
+      <div class="crow"><span class="k">Email</span><span class="v" id="em">specialoften4@gmail.com</span><button class="copy" type="button" data-copy="em">Copy</button></div>
+      <div class="crow"><span class="k">Phone</span><span class="v" id="ph">+855 16 905 923</span><button class="copy" type="button" data-copy="ph">Copy</button></div>
+      <div class="crow"><span class="k">Based</span><span class="v">Phnom Penh, Cambodia</span><span></span></div>
+    </div>
+  </div>
+</div>
+</main>
+<footer class="wrap"><svg class="flower"><use href="#fl"/></svg>© 2026 Saroeun Sreypich · All dashboards designed and built by me in Power BI Desktop</footer>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Dashboard, full size">
+  <button type="button" id="lbClose">Close</button>
+  <img id="lbImg" alt="">
+</div>
+
+<script>
+(function(){
+  var lb=document.getElementById("lb"), li=document.getElementById("lbImg"), lc=document.getElementById("lbClose"), last=null;
+  function open(src,alt,from){li.src=src;li.alt=alt||"";lb.hidden=false;last=from;lc.focus()}
+  function close(){lb.hidden=true;li.src="";if(last)last.focus()}
+  document.querySelectorAll(".shot").forEach(function(b){b.addEventListener("click",function(){var im=b.querySelector("img");open(b.dataset.full,im.alt,b)})});
+  lc.addEventListener("click",close);
+  lb.addEventListener("click",function(e){if(e.target===lb)close()});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!lb.hidden)close()});
+
+  var shot=document.getElementById("salesShot"), img=document.getElementById("salesImg"), pgs=document.querySelectorAll(".pg");
+  pgs.forEach(function(p){p.addEventListener("click",function(){
+    pgs.forEach(function(x){x.setAttribute("aria-pressed",x===p)});
+    img.src=p.dataset.src; img.alt="Sales and Business Performance, "+p.dataset.alt; shot.dataset.full=p.dataset.src;
+  })});
+
+  document.querySelectorAll(".copy").forEach(function(btn){btn.addEventListener("click",function(){
+    var el=document.getElementById(btn.dataset.copy);
+    function done(){btn.textContent="Copied";setTimeout(function(){btn.textContent="Copy"},1500)}
+    function fb(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent="Selected";setTimeout(function(){btn.textContent="Copy"},1500)}
+    try{navigator.clipboard.writeText(el.textContent).then(done,fb)}catch(e){fb()}
+  })});
+})();
+</script>
+
 </body>
 </html>

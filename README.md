@@ -1,14 +1,13 @@
 # My-Portfolio
 
-My personal portfolio website, hosted on GitHub Pages.
+Portfolio of **Saroeun Sreypich**, Reporting & Power BI Developer, hosted on GitHub Pages.
 
 **Live site:** https://specialoften4-commits.github.io/My-Portfolio/
 
 ## Structure
 
-- `index.html` – page content (about, projects, skills, contact)
-- `styles.css` – styling
-- `script.js` – small bits of interactivity
+- `index.html` – the whole site (content, styles and script)
+- `img/` – Power BI dashboard screenshots
 - `.github/workflows/deploy-pages.yml` – deploys the site to GitHub Pages on every push to `main`
 
 ## Enabling GitHub Pages (one-time)
@@ -19,4 +18,4 @@ My personal portfolio website, hosted on GitHub Pages.
 
 ## Editing
 
-Replace the placeholder text in `index.html` ("Your Name", project cards, email) with your own details, then commit and push to `main`.
+Edit `index.html` (or swap images in `img/`), then commit and push to `main`.
